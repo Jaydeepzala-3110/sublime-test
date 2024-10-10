@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { DBconnection } from "./utils/db.js";
 import userRoutes from "./routes/user.routes.js";
+import filesRoutes from "./routes/file.router.js";
 dotenv.config();
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(cors(corsOptions))
 app.use(express.json());
 
 app.use(userRoutes)
+app.use(filesRoutes)
 
 app.get('/', (_, res) => {
     res.json({
